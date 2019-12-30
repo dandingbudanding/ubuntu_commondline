@@ -1,0 +1,26 @@
+1.重启                       reboot
+2.删除命令行中光标前         ctrl+u
+  删除命令行中光标后         ctrl+k
+3.如何删除/tmp下A开头的文件  rm -f /tmp/A*
+4.把/etc/passed备份到/tmp目录下
+cp /etc/passed /tmp
+5.查看系统最后创建的3个用户   tail -3 /etc/passwd
+6.统计当前系统中一共有多少用户  wc -l /etc/passwd
+7.创建/tmp/test.conf文件      touch /tmp/test.conf
+8.用vim编辑打开tmp/test.conf  vim tmp/test.conf
+9.查看/etc/passwd前3行和后3行
+head -3 /etc/passwd
+tail -3 /etc/passwd
+10.一次性创建目录/text/1/2/3/4
+mkdir -p /text/1/2/3/4
+11.最快返回到当前账户的家目录
+cd ~      或 cd
+12.查看/etc所占的磁盘空间
+du -sh /etc
+13.删除/tmp下所有的文件
+rm -rf /tmp/*
+14.启动Apache服务，并检查是否成功启动
+service httpd start
+ps -ef|gred httpd
+15.杀死Apache的进程
+killall httpd

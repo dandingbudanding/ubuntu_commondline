@@ -1,0 +1,96 @@
+关机：shutdown -h now
+shutdown 0
+
+bin：全称binary，二进制，存放的是二进制文件，文件都是可以执行的
+Dev：存放的是外接设备，例如盘、其他的光盘。在其中的外接设备是不能直接被使用的，需要挂载（类似Windows下的分配盘符）
+Etc：该目录主要存储一些配置文件
+Home：表示‘家’，表示除了root以外其它用户的家目录，类似于Windows的user
+Proc：process，表示进程，该目录中存储Linux运行时的进程，运行时不要随意点开，很可能会卡屏
+root：root用户自己的家目录，一般进不去
+Sbin: super binary，该目录也存放一些可以被执行的二进制文件，但必须得用super权限的用户才能执行
+Tmp：临时的，系统运行时的临时文件存放地
+Usr：存放用户自己安装的软件，类似于Windows下的program files
+Var:存放的是日志文件
+
+指令主体 [选项][操作对象]
+一个指令可包含多个选项，操作对象；但指令主体只能是一个
+
+基础指令
+1
+ls(list)
+ls:列出Linux下文件
+
+ls 路径 ls Music
+绝对路径：‘/’从根目录开始
+相对路径：‘./’[表示当前目录]；‘../’[上一级目录下]
+
+ls -l：以列表形式显示文件
+ls -la Music：隐藏文档也显示
+ls -lh Music:文件大小会以合适单位体现出来，即可读性较高
+
+2
+pwd(print working directory)：打印当前工作路径
+
+3
+cd(change directory)：切换当前工作目录
+cd 路径
+（cd ~:切换当前工作路径到初始路径，‘~’：初始路径）
+
+4 
+mkdir(make directory):创建文件夹、目录
+mkdir 路径 mkdir ~/ww
+mkdir -p路径 mkdir -p ~/a/b/c/d：一次创建多个不存在文件的嵌套
+
+5
+touch：创建文件
+touch 文件路径 
+touch ~/wfy.c
+touch wfy1.c wfy2.c
+
+6
+cp（copy）：复制文件、文件夹到指定位置
+cp 被复制的文档路径 文档被复制到的路径
+cp ~/wwww.c ~/w
+被复制的文件可以在过程中改名：cp ~/wwww.c ~/w/wyf.c
+移动文件夹的时候加 -r[表示递归复制]:cp -r ~/w ~/w/f
+
+7
+mv(move,剪切)：移动文档到新的位置，和cp的区别是剪切 || 重命名
+mv 需要移动的文档路径 需要保存的位置
+移动:mv ~/w/f ~/w/y/w
+重命名:mv ~/w/y ~/w/aa
+
+8
+rm(remove,删除):删除文档
+rm 选项 需要移除的文档路径
+rm -f:删除的时候不加以确认，force，强制
+rm -r[递归]:删除文件夹
+*：通配符
+mkdir ~/aa ~/ab
+rm -r ~/a*
+aa,ab都会被删除
+
+9
+vim:文本编辑器，类似于Windows的notepad
+vim 文件路径：打开一个文件
+
+10输出重定向
+一般命令的输出都会显示在终端中，有时需要将一些命令执行的结果保存到文件中进行后续分析、统计，
+此时需要使用输出重定向
+
+>:覆盖输出
+>>:追加输出
+
+操作 > 路径
+操作 >> 路径
+ls -la >> log.txt
+vim log.txt（退出了命令行输入）
+
+11
+cat(直接打开一个文件)
+cat 文件路径（不会退出了命令行输入）直接打开一个文件
+cat log.txt
+cat 待合并文件路径1 待合并...2 .. ..n > 合并后文件路径：合并文件
+cat ~/wfy.c ~/wfy1.c > merge.txt
+cat merge.txt
+
